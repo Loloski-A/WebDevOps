@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Team Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Team Assignment</h1>
+    <button onclick="assignTeams()">Assign Teams</button>
+    <div id="teamAssignment"></div>
+    <script>
+        function assignTeams() {
+            const people = ['Garo', 'Lolo', 'Dore', 'Sadam', 'Mamedi', 'Daro', 'Wolde', 'Teilala', 'Moha', 'Wayo', 'Abdra', 'Idrisse', 'Ayala', 'Juma', 'Dima', 'Gurach', 'Mamedi', 'Moha Cheme']; // Add the names of the people in the array
+
+            const teamAssignment = document.getElementById('teamAssignment');
+            teamAssignment.innerHTML = '';
+
+            for (let i = 0; i < people.length; i++) {
+                const randomNum = Math.floor(Math.random() * 1000); // Generates a random number between 0 and 999
+                const team = randomNum % 2 === 0 ? 'Team 1' : 'Team 2';
+                const assignmentResult = `${people[i]} is assigned to ${team}`;
+                const assignmentElement = document.createElement('p');
+                assignmentElement.textContent = assignmentResult;
+                teamAssignment.appendChild(assignmentElement);
+            }
+        }
+    </script>
+</body>
+</html>
